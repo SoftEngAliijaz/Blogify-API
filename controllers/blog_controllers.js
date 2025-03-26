@@ -37,8 +37,41 @@ async function handleCreateNewBlogs(req, res) {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 }
-async function handleUpdateBlogs(params) {}
-async function handleDeleteBlogs(params) {}
+async function handleUpdateBlogs(req, res) {
+  try {
+    const { id } = req.params;
+    const updates = req.body;
+
+    const updatedBlog = await BLOGMODEL.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog NOT FOUND" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Updated Blog Successfully!", data: updatedBlog });
+  } catch (error) {
+    console.error("Error updating blog:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+async function handleDeleteBlogs(req, res) {
+  try {
+    const { id } = req.params;
+    const deletedBlog = await BLOGMODEL.findByIdAndDelete(id);
+
+    if (!deletedBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    return res.status(200).json({ message: "Deleted successfully!", id: id });
+  } catch (error) {
+    console.error("Error deleting blog:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+}
 
 module.exports = {
   handleGetAllBlogs,
