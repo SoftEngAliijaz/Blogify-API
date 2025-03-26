@@ -73,9 +73,28 @@ async function handleDeleteBlogs(req, res) {
   }
 }
 
+async function handleGetBlogById(req, res) {
+  try {
+    const { id } = req.params;
+    const blog = await BLOGMODEL.findById(id);
+
+    if (!blog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+
+    return res
+      .status(200)
+      .json({ message: "Blog fetched successfully", data: blog });
+  } catch (error) {
+    console.error("Error fetching blog by ID:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
 module.exports = {
   handleGetAllBlogs,
   handleCreateNewBlogs,
   handleUpdateBlogs,
   handleDeleteBlogs,
+  handleGetBlogById,
 };
