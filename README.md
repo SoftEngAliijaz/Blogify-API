@@ -1,7 +1,7 @@
 # **BlogifyAPI**  
 A simple RESTful Blog API with CRUD operations, built with **Node.js, Express & Mongoose**.  
 
----
+---  
 
 ## **🚀 Quick Start**  
 
@@ -14,80 +14,80 @@ A simple RESTful Blog API with CRUD operations, built with **Node.js, Express & 
    ```sh
    git clone https://github.com/yourusername/BlogifyAPI.git
    cd BlogifyAPI
-   ```
+   ```  
 2. Install dependencies:  
    ```sh
    npm install
-   ```
+   ```  
 3. Set up `.env` file:  
    ```env
    PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/blogify
-   ```
+   MONGODB_URI=mongodb://localhost:27017/blogify-api
+   ```  
 4. Run the server:  
    ```sh
    npm start
-   ```
+   ```  
 5. Access API at:  
    ```
-   http://localhost:3000/api/posts
-   ```
+   http://localhost:3000/api/blogs
+   ```  
 
----
+---  
 
 ## **📌 Features**  
-- **Create** blog posts  
-- **Read** all posts or single post  
-- **Update** existing posts  
-- **Delete** posts  
+- **Create** new blog posts  
+- **Read** all blog posts or a single post  
+- **Update** existing blog posts  
+- **Delete** blog posts  
+- **Comment** on blog posts  
 
----
+---  
 
 ## **📚 API Endpoints**  
 
-| Method | Endpoint          | Description                |
-|--------|-------------------|----------------------------|
-| POST   | `/api/posts`      | Create a new post          |
-| GET    | `/api/posts`      | Get all posts              |
-| GET    | `/api/posts/:id`  | Get a single post by ID    |
-| PUT    | `/api/posts/:id`  | Update a post by ID        |
-| DELETE | `/api/posts/:id`  | Delete a post by ID        |
+| Method | Endpoint         | Description                   |
+|--------|-----------------|-------------------------------|
+| POST   | `/api/blogs`     | Create a new blog post       |
+| GET    | `/api/blogs`     | Get all blog posts           |
+| GET    | `/api/blogs/:id` | Get a single blog post by ID |
+| PUT    | `/api/blogs/:id` | Update a blog post by ID     |
+| DELETE | `/api/blogs/:id` | Delete a blog post by ID     |
 
----
+---  
 
 ## **🛠️ Tech Stack**  
 - **Backend**: Node.js, Express  
 - **Database**: MongoDB (Mongoose)  
-- **Body Parsing**: `express.json()`  
+- **Middleware**: `express.json()`  
 - **Routing**: Express Router  
 
----
+---  
 
 ## **📦 Packages Used**  
 ```json
 "dependencies": {
   "express": "^4.18.2",
-  "mongoose": "^8.0.3"
+  "mongoose": "^8.0.3",
+  "dotenv": "^16.0.3"
 }
-```
+```  
 
----
+---  
 
 ## **🔧 Project Structure**  
 ```
 BlogifyAPI/
 ├── models/
-│   └── Post.js        # Mongoose schema
+│   └── blog_model.js       # Mongoose schema
+├── controllers/
+│   └── blog_controllers.js # CRUD logic
 ├── routes/
-│   └── posts.js       # CRUD routes
-├── app.js             # Express setup
-├── .env               # Environment variables
+│   └── blog_routes.js      # API routes
+├── config.js               # Database configuration
+├── app.js                  # Express server setup
+├── .env                    # Environment variables
 └── package.json
-```
+```  
 
----
-
-## **📜 License**  
-MIT  
-
----
+---  
