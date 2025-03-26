@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 /// Configure database
 configureDatabase("mongodb://localhost:27017/blogify-api");
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api/blogs", router);
 
