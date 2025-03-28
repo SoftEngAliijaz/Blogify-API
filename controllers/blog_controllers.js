@@ -3,6 +3,9 @@ const BLOGMODEL = require("../models/blog_model");
 async function handleGetAllBlogs(req, res) {
   try {
     const getAllBlog = await BLOGMODEL.find({});
+    if (!getAllBlog) {
+      return res.status(404).json({ message: "No blogs found" });
+    }
     return res
       .status(200)
       .json({ message: "Fetched all blogs Successfully", data: getAllBlog });
