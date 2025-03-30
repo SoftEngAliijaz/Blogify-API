@@ -46,7 +46,7 @@ nav ul li a:hover {
 
 /* Header */
 header {
-    background: url('/static/background.jpg') center/cover no-repeat;
+    background: url('/background.jpg') center/cover no-repeat;
     color: white;
     padding: 100px 20px;
 }
