@@ -1,6 +1,7 @@
 const express = require("express");
 const configureDatabase = require("./config");
 const router = require("./routes/blog_routes");
+const getWelcomePage = require("./welcome_page");
 
 // Create an instance of the Express application
 const app = express();
@@ -12,13 +13,8 @@ const PORT = process.env.PORT || 4000;
 configureDatabase("mongodb://localhost:27017/blogify-api");
 
 // Define a route for the root endpoint
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Hello, Welcome to Blogs",
-    documentation: "Visit /api/blogs for blog-related endpoints",
-    status: "success",
-  });
-});
+app.use(express.static("public")); // Serve static files
+app.get("/", getWelcomePage);
 
 // Set JSON formatting options for the response
 app.set("json spaces", 2);
