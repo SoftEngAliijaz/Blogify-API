@@ -1,8 +1,8 @@
-const BLOGMODEL = require("../models/blog_model");
+const BlogModel = require("../models/blog_model");
 
 async function handleGetAllBlogs(req, res) {
   try {
-    const getAllBlog = await BLOGMODEL.find({});
+    const getAllBlog = await BlogModel.find({});
     if (!getAllBlog) {
       return res.status(404).json({ message: "No blogs found" });
     }
@@ -24,7 +24,7 @@ async function handleCreateNewBlogs(req, res) {
       });
     }
 
-    const createNewBlog = await BLOGMODEL.create({
+    const createNewBlog = await BlogModel.create({
       title,
       slug,
       published,
@@ -45,7 +45,7 @@ async function handleUpdateBlogs(req, res) {
     const { id } = req.params;
     const updates = req.body;
 
-    const updatedBlog = await BLOGMODEL.findByIdAndUpdate(id, updates, {
+    const updatedBlog = await BlogModel.findByIdAndUpdate(id, updates, {
       new: true,
     });
     if (!updatedBlog) {
@@ -63,7 +63,7 @@ async function handleUpdateBlogs(req, res) {
 async function handleDeleteBlogs(req, res) {
   try {
     const { id } = req.params;
-    const deletedBlog = await BLOGMODEL.findByIdAndDelete(id);
+    const deletedBlog = await BlogModel.findByIdAndDelete(id);
 
     if (!deletedBlog) {
       return res.status(404).json({ message: "Blog not found" });
@@ -79,7 +79,7 @@ async function handleDeleteBlogs(req, res) {
 async function handleGetBlogById(req, res) {
   try {
     const { id } = req.params;
-    const blog = await BLOGMODEL.findById(id);
+    const blog = await BlogModel.findById(id);
 
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" });
