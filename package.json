@@ -1,0 +1,26 @@
+{
+  "name": "blogify-api",
+  "version": "1.0.0",
+  "description": "A simple RESTful Blog API with CRUD operations, built with **Node.js, Express & Mongoose**.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoftEngAliijaz/Blogify-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoftEngAliijaz/Blogify-API/issues"
+  },
+  "homepage": "https://github.com/SoftEngAliijaz/Blogify-API#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.0",
+    "nodemon": "^3.1.9"
+  }
+}
