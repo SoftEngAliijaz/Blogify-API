@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const userRouter = require("./routes/user");
+const blogRouter = require("./routes/blog_routes");
 const cookieParser = require("cookie-parser");
 const connectToDatabase = require("./config");
 const path = require("path");
@@ -10,6 +11,7 @@ const SERVER_PORT = 3000;
 
 connectToDatabase("mongodb://localhost:27017/blogify");
 
+app.set("json spaces", 2);
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"));
 
@@ -25,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", userRouter);
+app.use("/", blogRouter);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server is running on PORT: ${SERVER_PORT}`);
