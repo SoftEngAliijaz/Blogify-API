@@ -1,18 +1,11 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/user");
-const mongoose = require("mongoose");
+const connectToDatabase = require("./config");
 const path = require("path");
 const SERVER_PORT = 3000;
 
-mongoose
-  .connect("mongodb://localhost:27017/blogify")
-  .then(() => {
-    console.log("MongoDB is Connected Successfully!");
-  })
-  .catch((e) => {
-    console.log("Error", e);
-  });
+connectToDatabase("mongodb://localhost:27017/blogify");
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "./views"));
