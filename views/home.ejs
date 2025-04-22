@@ -3,13 +3,13 @@
 
   <head>
     <%- include("./partials/header"); %>
-      <title>Blogify API</title>
+      <title>Blogify - Home</title>
   </head>
 
   <body>
     <%- include("./partials/nav_bar"); %>
-      <h1>Welcome to Blogs API Home Page</h1>
-      <%- include("./partials/scripts"); %> <%- include("./partials/footer"); %>
+      <%= JSON.stringify(user) %>
+        <%- include("./partials/scripts"); %> <%- include("./partials/footer"); %>
   </body>
 
 </html>
