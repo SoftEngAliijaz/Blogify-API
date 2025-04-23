@@ -1,5 +1,14 @@
 Blogs API
+
 A robust Blogs API built with Node.js, Express.js, and Mongoose, featuring EJS templating for dynamic rendering.
+
+Table of Contents
+- #features
+- #technologies-used
+- #installation
+- #api-endpoints
+- #contributing
+- #license
 
 Features
 - RESTful API for managing blog posts
@@ -16,16 +25,26 @@ Technologies Used
 - MongoDB
 
 Installation
-1. Clone the repository: git clone https://github.com/your-username/blogs-api.git
-2. Install dependencies: npm install
-3. Start the server: npm start
+
+bash
+# Clone the repository
+git clone https://github.com/your-username/blogs-api.git
+
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+
 
 API Endpoints
-- /blogs: GET all blog posts
-- /blogs/:id: GET a single blog post by ID
-- /blogs: POST create a new blog post
-- /blogs/:id: PUT update a blog post
-- /blogs/:id: DELETE delete a blog post
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | /blogs | Get all blog posts |
+| GET | /blogs/:id | Get a single blog post by ID |
+| POST | /blogs | Create a new blog post |
+| PUT | /blogs/:id | Update a blog post |
+| DELETE | /blogs/:id | Delete a blog post |
 
 Contributing
 Contributions are welcome! Please submit a pull request with your changes.
